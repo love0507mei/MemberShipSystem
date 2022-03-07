@@ -1,0 +1,95 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.login-text {
+    min-width: 400px;
+    min-height: 500px;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.login-text h1 {
+    font-size: 25px;
+}
+
+.login-text p {
+    font-size: 15px;
+    color: #000000b2;
+}
+
+form {
+    align-items: flex-start !important;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.input-box {
+    margin: 10px 0px;
+    width: 100%;
+}
+
+.label {
+    font-size: 15px;
+    color: black;
+    margin-bottom: 3px;
+}
+
+.input {
+    background-color: #f6f6f6;
+    padding: 0px 5px;
+    border: 2px solid rgba(216, 216, 216, 1);
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: flex-start;
+}
+
+input {
+    border: none;
+    outline: none;
+    padding: 10px 5px;
+    background-color: #f6f6f6;
+    flex: 1;
+}
+
+.btn {
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px 15px;
+    background: linear-gradient(122.33deg, #68bed1 30.62%, #1e94e9 100%);
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    transition: all 0.3s linear;
+}
+
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+
+#alert {
+    color: red;
+    min-height: 20px;
+}

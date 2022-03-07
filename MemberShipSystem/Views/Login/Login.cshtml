@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "登入";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 會員平台</title>
+    @Styles.Render("~/Member/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body>
+    <div class=" flex-r container">
+        <div class="flex-r login-wrapper">
+            <div class="login-text">
+                <h1>登入 Login</h1>
+
+                <form class="flex-c">
+                    <div class="input-box">
+                        <span class="label">帳號</span>
+                        <div class=" flex-r input">
+                            <input type="text" id="UserID" name="UserID" placeholder="請輸入帳號">
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <span class="label">密碼</span>
+                        <div class="flex-r input">
+                            <input type="password" id="Password" name="Password" placeholder="請輸入密碼">
+                        </div>
+                    </div>
+                    <i id="alert"></i>
+                    <button class="btn" id="BtnLogin" type="button">登入</button>
+                    <span class="extra-line">
+                        <span>還沒有帳號？</span>
+                        <a href="@Url.Action("SignUp", "SignUp")">點我註冊</a>
+                    </span>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+    $('#BtnLogin').click(function () {
+
+        // 組合表單資料
+        var postData = {};
+        postData['UserID'] = $('#UserID').val();
+        postData['Password'] = $('#Password').val();
+
+        $.ajax({
+            url: "@Url.Action("DoLogin", "Login")",
+            type: "POST",
+            dataType: 'json',
+            data: { datas: postData },
+            success: function (data) {
+                if (data.ErrMsg) {
+                    $('#alert').text(data.ErrMsg);
+                    return;
+                }
+                else {
+                    $('#alert').text('');
+                    window.location.href = "@Url.Action("Index", "Home")";
+                }
+            },
+            error: function (err) {
+                $('#alert').text(err.responseText);
+            },
+        });
+    });
+    </script>
+</body>
+</html>
